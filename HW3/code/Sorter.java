@@ -83,8 +83,6 @@ public class Sorter implements GodricsHat{
         }
 
         public void counting(int[] array){
-            // Arrays.sort(array);
-
             // copied from HW2 Q4
             int i = 0, j = 0, k = 0, max = Integer . MIN_VALUE; 
             for (i = 0; i < array.length ; i ++)

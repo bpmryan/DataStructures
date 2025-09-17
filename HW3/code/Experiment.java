@@ -4,7 +4,7 @@ public class Experiment {
   public static void main(String[] args) {
     int[] test = null;
     double start = -1, end = -1;
-    int n = 10000; //00
+    int n = 1000000;
     int step = 1000;
     GodricsHat sorter = new Sorter();
     int i = 0, j = 1;
