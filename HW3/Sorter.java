@@ -22,11 +22,43 @@ public class Sorter implements GodricsHat{
         }
 
         public void merge(int[] array){
-             Arrays.sort(array);
+            // Arrays.sort(array);
+            // divide and conquer strategy
+            /*
+             * split up the array as many times as possible
+             * then sort/compare every element in each section and group them back together and repeat
+             * do until the whole array is sorted
+             */
+
+            //base condition
+            if(array.length <= 1){
+                return;
+            }
+
+            int middle = array.length / 2;
+            int[] left = new int[middle + 1]; 
+            int[] right = new int[array.length - left.length];
+            System.arraycopy(array, 0, left, 0, left.length);           //left side
+            System.arraycopy(array, left.length, right, left.length, right.length);    //right side
+            merge(left);
+            merge(right);
+
+            int i, j , k;
+            
+
+            return;
         }
         
         public void quick(int[] array, int p, int r){
-            Arrays.sort(array);
+            /*  
+             * put all the elements less than the middle on the left
+             * put all the elements greater than the middle on the right
+             * aka divide and conquer strategy
+            */
+
+
+
+
         }
 
         public void quickLoopy(int[] array){
