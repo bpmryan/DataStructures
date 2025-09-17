@@ -36,17 +36,34 @@ public class Sorter implements GodricsHat{
             }
 
             int middle = array.length / 2;
-            int[] left = new int[middle + 1]; 
+            int[] left = new int[middle]; 
             int[] right = new int[array.length - left.length];
-            System.arraycopy(array, 0, left, 0, left.length);           //left side
-            System.arraycopy(array, left.length, right, left.length, right.length);    //right side
+            System.arraycopy(array, 0, left, 0, left.length);         // left side
+            System.arraycopy(array, left.length, right, 0, right.length);    // right side
             merge(left);
             merge(right);
 
-            int i, j , k;
-            
+            int i = 0;
+            int j = 0; 
+            int k = 0;
 
-            return;
+            for ( i = 0; i < array.length; i++) {
+                if (j >= left.length){
+                    System.arraycopy(right, k, array, i, array.length - i);
+                    break;
+                }
+                if (k >= right.length){
+                    System.arraycopy(left, j, array, i, array.length - i);
+                    break;
+                }
+                if (left[j] < right[k]){
+                    array[i] = left[j];
+                    j++; 
+                } else {
+                    array[i] = right[k];
+                    k++; 
+                }
+            }
         }
         
         public void quick(int[] array, int p, int r){
@@ -56,7 +73,7 @@ public class Sorter implements GodricsHat{
              * aka divide and conquer strategy
             */
 
-
+            Arrays.sort(array);
 
 
         }
