@@ -71,12 +71,58 @@ public class Sorter implements GodricsHat{
              * put all the elements less than the middle on the left
              * put all the elements greater than the middle on the right
              * aka divide and conquer strategy
+             * 
+             * p is the start of the array
+             * r is the end of the array 
             */
 
-            Arrays.sort(array);
+            // recursive function
+             if (p < r) { // base case for recursion
 
+                    // Partitions array and gets the index that's being pivoted (reorganizes it)
+                    // Part that the elements less than the pivot to the left and the greatest on the right
+                    // calls partition method
+                    int pivotIndex = partition(array, p, r);
 
-        }
+                    // Part that actually recursivly sorts the left and right subarrays 
+                    quick(array, p, pivotIndex - 1); // low
+                    quick(array, pivotIndex + 1, r); // high
+                }
+            }
+
+            // method that partitions the indexes into the right position
+            // part that recognizes where each index goes 
+            private static int partition(int[] array, int p, int r){
+
+                // pivot is the last element 
+                int pivot = array[r];
+                // traces the boundary elements <= pivot
+                int i = p - 1;
+
+                // loops through the array from p to r-1
+                // j is the current index that is being compared to 
+                for (int j = p; j < r; j++){
+                    if (array[j] <= pivot){
+                        i++;
+
+                        // part that swtiches the two elements around if the are false
+                        int temp = array[i];
+                        array[i] = array [j];
+                        array[j] = temp;
+                    }
+                }
+
+                // pivot temp and r
+                int temp = array[i + 1];
+                array[i + 1] = array[r];
+                array[r] = temp;
+
+                // returns the pivot index
+                return i + 1;
+            }
+        
+       
+
 
         public void quickLoopy(int[] array){
             Arrays.sort(array);
