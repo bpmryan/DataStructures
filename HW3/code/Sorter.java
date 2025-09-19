@@ -23,7 +23,6 @@ public class Sorter implements GodricsHat {
     }
 
     public void merge(int[] array) {
-        // Arrays.sort(array);
         // divide and conquer strategy
         /*
          * split up the array as many times as possible
