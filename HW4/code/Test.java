@@ -5,7 +5,8 @@ public class Test {
         // or Structure
         Stack<Integer> st = new Stack<Integer>();
         Structure<Integer> qu = new Queue<Integer>();
-        
+
+        // Switch qu to st if you want to see the Stack 
         for(int i = 0; i < 10; i++){
             qu.push(i);
         }
