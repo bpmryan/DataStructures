@@ -29,7 +29,7 @@ public class Question implements Comparable<Question>{
         statement = String.format("%d x %d = ?", a, b);
         answer = String.format("%d", a * b);
         duration = 0;
-        missed = 5;
+        missed = 5 ;
     }
 
     public void ask() {

@@ -14,7 +14,7 @@ plt.title(title)
 plt.xlabel(xlabel)
 plt.ylabel(ylabel)
 # data[1][data[1].argmax()] = data[1][0]
-plt.plot(data[0], label='ArrayList')
+# plt.plot(data[0], label='ArrayList')
 plt.plot(data[1], label='LinkedList')
 plt.legend()
 plt.show()
