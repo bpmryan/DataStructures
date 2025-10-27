@@ -96,10 +96,10 @@ public class Vertex implements Comparable<Vertex> {
     format += "]";
 
     for (int i = 0; i < size; i++) {
-      int[] row = new int[size];
+      Integer[] row = new Integer[size];
       for (int j = 0; j < size; j++)
-        row[j] = this.board[i * size + j];
-      sb.append(String.format(format, row));
+        row[j] = (int)this.board[i * size + j];
+      sb.append(String.format(format, (Object[])row));
       if (i < size - 1)
         sb.append("\n");
     }
