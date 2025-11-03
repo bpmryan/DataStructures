@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class Minimax {
 
   public static void main(String[] args) {
@@ -17,18 +15,38 @@ public class Minimax {
 
   private int growTree(Vertex root, int turn, int utility) {
     // implement me
+    // Base case
+    utility = root.terminal();
+    if (utility != Vertex.CONT) {
+      root.utility = (byte) utility;
+      return utility;
+    }
+
     for (int i = 0; i < root.board.length; i++) {
       root.grow(i, turn);
-      // System.out.println(root.children.get(i));
     }
-    for (Vertex child: root.children){
-      growTree(child, -turn, utility);
+    for (Vertex child : root.children) {
+      child.utility = (byte) growTree(child, -turn, utility);
     }
-    return 0;
+    return root.minimax(turn);
   }
 
   public void play(int place) {
     // implement me
+    // this.root.board[place] = 1;
+    // Vertex match = null;
+    boolean validMove = false;
+    for (Vertex child : this.root.children) {
+      if (child.board[place] == 1) {
+        this.root = child;
+        validMove = true;
+      }
+    }
+
+    if (validMove && this.root.children.size() > 0) {
+      this.root = this.root.min();
+    }
+    this.message = evalMessage();
   }
 
   public int gameOverState() {
