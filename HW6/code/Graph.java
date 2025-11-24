@@ -23,12 +23,12 @@ public class Graph {
         return;
     }
 
+    // last thing needed to implement 
     public static void relax(Vertex u, Vertex v, int[][] w) {
         if(v.d > u.d + w[u.i][v.i]){
             v.d = u.d + w[u.i][v.i];
             v.pi = u.label();
         }
-        
         return;
     }
 
